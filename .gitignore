@@ -1,0 +1,5 @@
+
+!projects/
+!projects/asvix/
+!projects/asvix/**
+node_modules/
