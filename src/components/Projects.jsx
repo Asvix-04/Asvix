@@ -8,7 +8,7 @@ const projects = [
     tagline: 'AI-Powered Health Companion',
     url: 'https://www.medibot-ai.com',
     category: 'HealthTech · SaaS',
-    year: '2025',
+    year: '2026',
     accentFrom: '#3B82F6',
     accentTo: '#6366F1',
     glowColor: 'rgba(99,102,241,0.15)',
@@ -21,6 +21,7 @@ const projects = [
       'Freemium SaaS model with tiered pricing, HIPAA-conscious data encryption, and biometric authentication',
     ],
     previewUrl: 'https://www.medibot-ai.com',
+    imagePath: '/projects/medibot-ai.svg',
     mockBg: 'from-indigo-900/80 via-blue-950/80 to-space-900',
     mockLines: [
       { w: '70%', c: 'bg-blue-400/30' },
@@ -29,12 +30,12 @@ const projects = [
     ],
   },
   {
-    id: 'asvix-v2',
-    title: 'Asvix V2 Frontend',
-    tagline: 'Enterprise-Grade SaaS Landing',
+    id: 'digilab',
+    title: 'DigiLab',
+    tagline: 'Space-Blue Product Showcase',
     url: 'https://v2fronted.netlify.app',
     category: 'SaaS · Web Platform',
-    year: '2025',
+    year: '2026',
     accentFrom: '#06B6D4',
     accentTo: '#3B82F6',
     glowColor: 'rgba(6,182,212,0.12)',
@@ -44,9 +45,10 @@ const projects = [
       'Component-driven architecture with reusable UI primitives, design tokens, and a custom CSS system',
       'Smooth scroll-triggered animations and parallax effects delivering a cinematic browsing experience',
       'Mobile-first, fully responsive layout with optimized image delivery and < 1s Largest Contentful Paint',
-      'Serves as Asvix\'s own digital flagship — showcasing the agency\'s design philosophy and service range',
+      'Serves as DigiLab\'s own digital flagship, showcasing the studio\'s design philosophy and service range',
     ],
     previewUrl: 'https://v2fronted.netlify.app',
+    imagePath: '/projects/digilab.svg',
     mockBg: 'from-cyan-900/80 via-blue-950/80 to-space-900',
     mockLines: [
       { w: '80%', c: 'bg-cyan-400/30' },
@@ -68,6 +70,9 @@ function useInView(threshold = 0.15) {
 }
 
 function BrowserMockup({ project, dark }) {
+  const [imageFailed, setImageFailed] = useState(false)
+  const hasImage = Boolean(project.imagePath && !imageFailed)
+
   return (
     <div className={`rounded-2xl overflow-hidden border ${dark ? 'border-white/8' : 'border-black/8'} shadow-2xl`}
       style={{ boxShadow: `0 40px 80px ${project.glowColor}` }}>
@@ -79,7 +84,7 @@ function BrowserMockup({ project, dark }) {
           <div className="w-3 h-3 rounded-full bg-green-400/70" />
         </div>
         <div className={`flex-1 mx-4 rounded-full px-3 py-1 text-xs font-body truncate ${dark ? 'bg-space-700 text-white/40' : 'bg-white text-space-900/40'}`}>
-          {project.url.replace('https://', '')}
+          {(project.previewUrl || project.url).replace('https://', '')}
         </div>
         <div className="w-4 h-4 opacity-30">
           <ExternalLink size={12} />
@@ -88,29 +93,53 @@ function BrowserMockup({ project, dark }) {
 
       {/* Screen */}
       <div className={`aspect-video bg-gradient-to-br ${project.mockBg} p-6 flex flex-col gap-4 relative overflow-hidden`}>
+        {hasImage && (
+          <img
+            src={project.imagePath}
+            alt={`${project.title} preview`}
+            className="absolute inset-0 w-full h-full object-cover"
+            onError={() => setImageFailed(true)}
+          />
+        )}
+
+        {hasImage && (
+          <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+        )}
+
         {/* Glow bg */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: `radial-gradient(ellipse at 50% 30%, ${project.glowColor} 0%, transparent 70%)` }} />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: hasImage
+              ? 'radial-gradient(ellipse at 50% 30%, rgba(15,23,42,0.08) 0%, transparent 70%)'
+              : `radial-gradient(ellipse at 50% 30%, ${project.glowColor} 0%, transparent 70%)`,
+          }}
+        />
 
         {/* Fake hero content */}
-        <div className="flex flex-col gap-2 z-10">
-          <div className="w-24 h-3 rounded-full opacity-60" style={{ background: `linear-gradient(to right, ${project.accentFrom}, ${project.accentTo})` }} />
-          <div className="w-40 h-5 rounded-full bg-white/20" />
-          <div className="w-32 h-3 rounded-full bg-white/10" />
-        </div>
+        {!hasImage && (
+          <div className="flex flex-col gap-2 z-10">
+            <div className="w-24 h-3 rounded-full opacity-60" style={{ background: `linear-gradient(to right, ${project.accentFrom}, ${project.accentTo})` }} />
+            <div className="w-40 h-5 rounded-full bg-white/20" />
+            <div className="w-32 h-3 rounded-full bg-white/10" />
+          </div>
+        )}
 
         {/* Fake cards row */}
-        <div className="grid grid-cols-3 gap-3 z-10 mt-auto">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className={`rounded-xl p-3 flex flex-col gap-1.5 ${dark ? 'bg-white/5 border border-white/8' : 'bg-white/10 border border-white/15'}`}>
-              <div className="w-8 h-8 rounded-lg opacity-70" style={{ background: `linear-gradient(135deg, ${project.accentFrom}50, ${project.accentTo}50)` }} />
-              <div className="w-full h-2 rounded bg-white/20" />
-              <div className="w-3/4 h-1.5 rounded bg-white/10" />
-            </div>
-          ))}
-        </div>
+        {!hasImage && (
+          <div className="grid grid-cols-3 gap-3 z-10 mt-auto">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className={`rounded-xl p-3 flex flex-col gap-1.5 ${dark ? 'bg-white/5 border border-white/8' : 'bg-white/10 border border-white/15'}`}>
+                <div className="w-8 h-8 rounded-lg opacity-70" style={{ background: `linear-gradient(135deg, ${project.accentFrom}50, ${project.accentTo}50)` }} />
+                <div className="w-full h-2 rounded bg-white/20" />
+                <div className="w-3/4 h-1.5 rounded bg-white/10" />
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Overlay iframe-like shimmer */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
+        <div className={`absolute inset-0 pointer-events-none ${hasImage ? 'bg-gradient-to-t from-black/10 to-transparent' : 'bg-gradient-to-t from-black/30 to-transparent'}`} />
 
         {/* Visit overlay */}
         <a

@@ -80,10 +80,10 @@ export default function Stats({ dark }) {
             Whether it's a SaaS product, a marketing site, or a full-scale web app — we'll build it with craft and obsession.
           </p>
           <a
-            href="mailto:hello@asvix.com"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-azure-600 to-blue-500 text-white font-body font-semibold text-sm hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1"
+            href="/contact"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-space-600 to-space-500 text-white font-body font-semibold text-sm hover:shadow-xl hover:shadow-space-500/30 transition-all duration-300 hover:-translate-y-1"
           >
-            Start a Project →
+            Contact Us →
           </a>
         </div>
       </div>

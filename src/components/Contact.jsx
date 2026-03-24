@@ -1,60 +1,171 @@
-import { useEffect, useRef } from 'react'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-export default function Contact() {
-  const ref = useRef(null)
+const initialForm = {
+  name: '',
+  email: '',
+  subject: '',
+  message: '',
+}
 
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { el.classList.add('visible'); obs.disconnect() } },
-      { threshold: 0.1 }
-    )
-    obs.observe(el)
-    return () => obs.disconnect()
-  }, [])
+export default function Contact({ dark }) {
+  const [form, setForm] = useState(initialForm)
+  const [status, setStatus] = useState({ type: '', text: '' })
+  const [sending, setSending] = useState(false)
+
+  const onChange = (event) => {
+    const { name, value } = event.target
+    setForm((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const onSubmit = async (event) => {
+    event.preventDefault()
+    setSending(true)
+    setStatus({ type: '', text: '' })
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message.')
+      }
+
+      setStatus({ type: 'success', text: 'Message sent successfully. We will get back to you soon.' })
+      setForm(initialForm)
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        text: error.message || 'Unable to send message right now. Please try again in a few minutes.',
+      })
+    } finally {
+      setSending(false)
+    }
+  }
 
   return (
-    <section id="contact" className="relative z-10 py-24 px-6">
-      <div className="max-w-3xl mx-auto text-center" ref={ref}>
-        <div className="reveal">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full mb-8 border dark:border-blue-500/20 border-blue-200 dark:bg-blue-500/8 bg-blue-50">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-            <span className="text-xs font-body font-medium tracking-widest uppercase dark:text-blue-400 text-blue-600">
-              Open for Projects
-            </span>
-          </div>
+    <main className="relative min-h-screen pt-28 pb-16 px-4 sm:px-6 md:px-10 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" style={{ background: dark ? 'radial-gradient(ellipse at 20% 0%, rgba(59,130,246,0.18) 0%, transparent 45%)' : 'radial-gradient(ellipse at 25% 0%, rgba(59,130,246,0.12) 0%, transparent 45%)' }} />
 
-          <h2 className="font-display text-4xl md:text-5xl font-bold dark:text-white text-gray-900 mb-5 leading-tight">
-            Got an Idea?
-            <br />
-            <span className="dark:text-gradient-blue text-gradient-blue-light">Let's Build It.</span>
-          </h2>
-
-          <p className="font-body text-lg dark:text-gray-400 text-gray-500 mb-10 max-w-lg mx-auto leading-relaxed">
-            We partner with startups, founders, and teams who want a website that doesn't just look good — 
-            it performs, converts, and stands out.
+      <section className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-start relative z-10">
+        <div>
+          <p className={`text-xs font-body font-medium tracking-widest uppercase mb-4 ${dark ? 'text-azure-400/80' : 'text-azure-600'}`}>
+            Contact Asvix
+          </p>
+          <h1 className={`font-display font-bold leading-tight mb-5 ${dark ? 'text-white' : 'text-space-900'}`} style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)' }}>
+            Tell us what you want to build.
+          </h1>
+          <p className={`font-body text-base sm:text-lg leading-relaxed max-w-lg mb-8 ${dark ? 'text-white/55' : 'text-space-900/55'}`}>
+            Share your project details and timeline. We will review it and respond with the right next steps.
           </p>
 
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <a
-              href="mailto:hello@asvix.com"
-              className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-body font-semibold text-sm transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5"
-            >
-              Say Hello
-              <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </a>
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl dark:bg-white/5 bg-gray-100 dark:hover:bg-white/8 hover:bg-gray-200 dark:text-white text-gray-800 font-body font-semibold text-sm transition-all duration-200 dark:border-white/8 border border-gray-200 hover:-translate-y-0.5"
-            >
-              See More Work
-            </a>
+          <div className={`rounded-2xl p-5 sm:p-6 border ${dark ? 'bg-white/5 border-white/10' : 'bg-white border-black/10 shadow-sm'}`}>
+            <p className={`font-display font-semibold text-lg mb-4 ${dark ? 'text-white' : 'text-space-900'}`}>
+              Direct contact
+            </p>
+            <div className="space-y-2">
+              <a href="mailto:hello@asvix.com" className={`block font-body text-sm transition-colors ${dark ? 'text-azure-300 hover:text-azure-200' : 'text-azure-700 hover:text-azure-600'}`}>
+                hello@asvix.com
+              </a>
+              <p className={`font-body text-sm ${dark ? 'text-white/50' : 'text-space-900/50'}`}>Mon-Fri, 9:00 AM to 8:00 PM IST</p>
+            </div>
           </div>
+
+          <Link
+            to="/"
+            className={`inline-flex items-center gap-2 mt-6 text-sm font-body font-medium transition-colors ${dark ? 'text-white/70 hover:text-white' : 'text-space-900/70 hover:text-space-900'}`}
+          >
+            ← Back to home
+          </Link>
         </div>
-      </div>
-    </section>
+
+        <div className={`rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 border ${dark ? 'bg-space-800/80 border-white/10' : 'bg-white border-black/10 shadow-sm'}`}>
+          <form className="space-y-4" onSubmit={onSubmit}>
+            <div>
+              <label htmlFor="name" className={`block text-sm mb-1.5 font-body font-medium ${dark ? 'text-white/85' : 'text-space-900/85'}`}>
+                Name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                value={form.name}
+                onChange={onChange}
+                required
+                className={`w-full rounded-xl px-4 py-3 text-sm outline-none border transition-colors ${dark ? 'bg-white/5 border-white/15 text-white placeholder:text-white/35 focus:border-azure-400/60' : 'bg-white border-black/15 text-space-900 placeholder:text-space-900/35 focus:border-azure-500/60'}`}
+                placeholder="Your full name"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="email" className={`block text-sm mb-1.5 font-body font-medium ${dark ? 'text-white/85' : 'text-space-900/85'}`}>
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                value={form.email}
+                onChange={onChange}
+                required
+                className={`w-full rounded-xl px-4 py-3 text-sm outline-none border transition-colors ${dark ? 'bg-white/5 border-white/15 text-white placeholder:text-white/35 focus:border-azure-400/60' : 'bg-white border-black/15 text-space-900 placeholder:text-space-900/35 focus:border-azure-500/60'}`}
+                placeholder="you@company.com"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="subject" className={`block text-sm mb-1.5 font-body font-medium ${dark ? 'text-white/85' : 'text-space-900/85'}`}>
+                Subject
+              </label>
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                value={form.subject}
+                onChange={onChange}
+                required
+                className={`w-full rounded-xl px-4 py-3 text-sm outline-none border transition-colors ${dark ? 'bg-white/5 border-white/15 text-white placeholder:text-white/35 focus:border-azure-400/60' : 'bg-white border-black/15 text-space-900 placeholder:text-space-900/35 focus:border-azure-500/60'}`}
+                placeholder="Project discussion"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="message" className={`block text-sm mb-1.5 font-body font-medium ${dark ? 'text-white/85' : 'text-space-900/85'}`}>
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={form.message}
+                onChange={onChange}
+                required
+                rows={6}
+                className={`w-full rounded-xl px-4 py-3 text-sm outline-none border transition-colors resize-none ${dark ? 'bg-white/5 border-white/15 text-white placeholder:text-white/35 focus:border-azure-400/60' : 'bg-white border-black/15 text-space-900 placeholder:text-space-900/35 focus:border-azure-500/60'}`}
+                placeholder="Tell us what you need, goals, deadlines, and budget range."
+              />
+            </div>
+
+            {status.text && (
+              <p className={`text-sm font-body ${status.type === 'success' ? (dark ? 'text-green-300' : 'text-green-700') : (dark ? 'text-rose-300' : 'text-rose-700')}`}>
+                {status.text}
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={sending}
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-space-600 to-space-500 text-white font-body font-semibold text-sm hover:shadow-xl hover:shadow-space-500/30 transition-all duration-300 hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0"
+            >
+              {sending ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
   )
 }

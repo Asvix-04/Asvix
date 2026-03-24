@@ -1,9 +1,19 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { Sun, Moon, Menu, X } from 'lucide-react'
+import BrandLogo from './BrandLogo'
 
 export default function Navbar({ dark, setDark }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+
+  const navLinks = [
+    { label: 'Work', href: '/#work' },
+    { label: 'Services', href: '/#services' },
+    { label: 'About', href: '/#about' },
+    { label: 'Contact', href: '/contact' },
+  ]
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20)
@@ -23,28 +33,23 @@ export default function Navbar({ dark, setDark }) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-azure-500 to-blue-700 flex items-center justify-center shadow-lg shadow-blue-500/30">
-            <span className="text-white font-display font-bold text-sm">A</span>
-          </div>
-          <span className="font-display font-bold text-lg tracking-tight">
-            <span className={dark ? 'text-white' : 'text-space-900'}>asvix</span>
-          </span>
-        </a>
+        <Link to="/" className="flex items-center" aria-label="Asvix Home">
+          <BrandLogo sizeClass="w-10 h-10" />
+        </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {['Work', 'Services', 'About', 'Contact'].map((item) => (
+          {navLinks.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.label}
+              href={item.href}
               className={`text-sm font-body font-medium transition-colors duration-200 ${
                 dark
                   ? 'text-white/60 hover:text-white'
                   : 'text-space-900/60 hover:text-space-900'
               }`}
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </nav>
@@ -66,8 +71,8 @@ export default function Navbar({ dark, setDark }) {
 
           {/* CTA */}
           <a
-            href="#work"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-azure-600 to-blue-500 text-white text-sm font-medium font-body hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5"
+            href={location.pathname === '/contact' ? '/#work' : '#work'}
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-space-600 to-space-500 text-white text-sm font-medium font-body hover:shadow-lg hover:shadow-space-500/30 transition-all duration-300 hover:-translate-y-0.5"
           >
             View Work
           </a>
@@ -87,14 +92,14 @@ export default function Navbar({ dark, setDark }) {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className={`md:hidden px-4 sm:px-6 pb-6 pt-2 flex flex-col gap-4 ${dark ? 'bg-space-900/95' : 'bg-white/95'}`}>
-          {['Work', 'Services', 'About', 'Contact'].map((item) => (
+          {navLinks.map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.label}
+              href={item.href}
               onClick={() => setMenuOpen(false)}
               className={`text-sm font-medium ${dark ? 'text-white/70' : 'text-space-900/70'}`}
             >
-              {item}
+              {item.label}
             </a>
           ))}
         </div>

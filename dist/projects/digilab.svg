@@ -1,0 +1,52 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DigiLab landing page preview">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+    <linearGradient id="cta" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#5B67D7"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="#F8FAFC"/>
+
+  <!-- Navbar -->
+  <rect x="0" y="0" width="1600" height="88" fill="#F8FAFC"/>
+  <rect x="0" y="87" width="1600" height="1" fill="#E2E8F0"/>
+
+  <rect x="38" y="22" width="40" height="40" rx="10" fill="#E0E7FF"/>
+  <rect x="52" y="31" width="13" height="22" rx="2" fill="none" stroke="#6366F1" stroke-width="2"/>
+  <line x1="52" y1="42" x2="65" y2="42" stroke="#6366F1" stroke-width="2"/>
+  <text x="92" y="53" fill="#171717" font-size="46" font-family="Arial, sans-serif" font-weight="700">DigiLab</text>
+
+  <g fill="#64748B" font-family="Arial, sans-serif" font-size="32" font-weight="600">
+    <text x="635" y="53">Home</text>
+    <text x="760" y="53">Dashboard</text>
+    <text x="955" y="53">Chat</text>
+  </g>
+
+  <g fill="#64748B" font-family="Arial, sans-serif" font-size="34" font-weight="700">
+    <text x="1448" y="53">☾</text>
+    <text x="1520" y="53">⚙</text>
+  </g>
+
+  <!-- Hero badge -->
+  <rect x="620" y="130" width="360" height="32" rx="16" fill="#EEF2FF" stroke="#C7D2FE"/>
+  <text x="800" y="152" text-anchor="middle" fill="#6366F1" font-size="24" font-family="Courier New, monospace">INTRODUCING DIGILAB V1</text>
+
+  <!-- Hero heading -->
+  <text x="800" y="310" text-anchor="middle" fill="#27272A" font-size="104" font-family="Arial, sans-serif" font-weight="700">Academic</text>
+  <text x="800" y="415" text-anchor="middle" fill="#27272A" font-size="104" font-family="Arial, sans-serif" font-weight="700">Intelligence</text>
+  <text x="800" y="520" text-anchor="middle" fill="url(#accent)" font-size="104" font-family="Arial, sans-serif" font-weight="700">Reimagined.</text>
+
+  <!-- Hero paragraph -->
+  <text x="800" y="610" text-anchor="middle" fill="#64748B" font-size="45" font-family="Arial, sans-serif">An advanced RAG-powered assistant for the academic world. Tailored</text>
+  <text x="800" y="662" text-anchor="middle" fill="#64748B" font-size="45" font-family="Arial, sans-serif">experiences for Professors and Students, built on a hybrid knowledge graph</text>
+  <text x="800" y="714" text-anchor="middle" fill="#64748B" font-size="45" font-family="Arial, sans-serif">engine.</text>
+
+  <!-- CTA -->
+  <rect x="660" y="785" width="280" height="74" rx="22" fill="url(#cta)"/>
+  <text x="800" y="833" text-anchor="middle" fill="#EEF2FF" font-size="42" font-family="Arial, sans-serif" font-weight="700">Get Started</text>
+</svg>

@@ -58,14 +58,26 @@ export default function Hero({ dark }) {
       {/* Dark mode glows */}
       {dark && (
         <>
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-blue-600/10 blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-space-500/20 blur-[120px] pointer-events-none" />
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-azure-500/8 blur-[100px] pointer-events-none" />
         </>
       )}
 
-      {/* Light mode subtle gradient */}
+      {/* Light mode subtle gradient + 3D orb */}
       {!dark && (
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-50/80 via-white to-white pointer-events-none" />
+        <>
+          <div className="absolute inset-0 bg-gradient-to-b from-sky-50/80 via-white to-white pointer-events-none" />
+          <div className="absolute right-[-8rem] top-[20%] w-[20rem] h-[20rem] md:w-[26rem] md:h-[26rem] pointer-events-none animate-float"
+            style={{ perspective: '1200px' }}>
+            <div className="w-full h-full rounded-[28%] border border-space-500/15"
+              style={{
+                transform: 'rotateX(58deg) rotateY(-26deg) rotateZ(24deg)',
+                background: 'radial-gradient(circle at 25% 20%, rgba(147,197,253,0.55) 0%, rgba(59,130,246,0.28) 35%, rgba(30,49,99,0.2) 62%, rgba(255,255,255,0.04) 100%)',
+                boxShadow: '0 35px 90px rgba(30,49,99,0.25), inset -28px -28px 70px rgba(30,49,99,0.18), inset 24px 24px 54px rgba(255,255,255,0.6)',
+              }}
+            />
+          </div>
+        </>
       )}
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
@@ -77,7 +89,7 @@ export default function Hero({ dark }) {
             background: dark ? 'rgba(59,130,246,0.08)' : 'rgba(219,234,254,0.6)',
           }}>
           <span className="w-1.5 h-1.5 rounded-full bg-azure-500 animate-pulse" />
-          SaaS Web Agency
+          Software as a Service
         </div>
 
         {/* Headline */}
@@ -99,7 +111,7 @@ export default function Hero({ dark }) {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up stagger-3">
           <a
             href="#work"
-            className="px-8 py-3.5 rounded-full bg-gradient-to-r from-azure-600 to-blue-500 text-white font-body font-semibold text-sm hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1"
+            className="px-8 py-3.5 rounded-full bg-gradient-to-r from-space-600 to-space-500 text-white font-body font-semibold text-sm hover:shadow-xl hover:shadow-space-500/30 transition-all duration-300 hover:-translate-y-1"
           >
             See Our Work
           </a>
