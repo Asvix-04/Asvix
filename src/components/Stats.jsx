@@ -37,14 +37,14 @@ export default function Stats({ dark }) {
               <Icon size={20} className={dark ? 'text-azure-400' : 'text-azure-600'} />
               <span className={`font-display font-bold text-2xl sm:text-3xl md:text-4xl ${dark ? 'text-white' : 'text-space-900'}`}>{value}</span>
               <span className={`font-body text-sm font-medium ${dark ? 'text-white/70' : 'text-space-900/70'}`}>{label}</span>
-              <span className={`font-body text-xs ${dark ? 'text-white/30' : 'text-space-900/30'}`}>{desc}</span>
+              <span className={`font-body text-xs ${dark ? 'text-white/30' : 'text-space-900/50'}`}>{desc}</span>
             </div>
           ))}
         </div>
 
         {/* Services Marquee */}
         <div className={`transition-all duration-700 ${inView ? 'opacity-100' : 'opacity-0'}`}>
-          <p className={`text-center text-xs font-body font-medium tracking-widest uppercase mb-8 ${dark ? 'text-white/25' : 'text-space-900/25'}`}>
+          <p className={`text-center text-xs font-body font-medium tracking-widest uppercase mb-8 ${dark ? 'text-white/25' : 'text-space-900/45'}`}>
             What we build
           </p>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
@@ -54,7 +54,7 @@ export default function Stats({ dark }) {
                 className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-body text-xs sm:text-sm font-medium border transition-all duration-300 hover:-translate-y-0.5 cursor-default ${
                   dark
                     ? 'border-white/10 text-white/50 hover:border-azure-500/40 hover:text-azure-400'
-                    : 'border-black/10 text-space-900/50 hover:border-azure-500/40 hover:text-azure-600'
+                    : 'border-black/10 text-space-900/65 hover:border-azure-500/40 hover:text-azure-600'
                 }`}
                 style={{ transitionDelay: `${i * 0.04}s` }}
               >

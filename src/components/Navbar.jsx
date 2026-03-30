@@ -23,18 +23,18 @@ export default function Navbar({ dark, setDark }) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
         scrolled
           ? dark
-            ? 'glass-dark border-b border-white/5'
-            : 'glass-light border-b border-black/5 shadow-sm'
-          : 'bg-transparent'
+            ? 'glass-dark border-white/5'
+            : 'glass-light border-black/5 shadow-sm'
+          : 'bg-transparent border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center" aria-label="Asvix Home">
-          <BrandLogo sizeClass="w-10 h-10" />
+          <BrandLogo sizeClass="w-12 h-12" dark={dark} />
         </Link>
 
         {/* Desktop Nav */}
@@ -46,7 +46,7 @@ export default function Navbar({ dark, setDark }) {
               className={`text-sm font-body font-medium transition-colors duration-200 ${
                 dark
                   ? 'text-white/60 hover:text-white'
-                  : 'text-space-900/60 hover:text-space-900'
+                  : 'text-space-900/75 hover:text-space-900'
               }`}
             >
               {item.label}

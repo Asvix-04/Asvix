@@ -15,18 +15,18 @@ export default function Footer({ dark }) {
           {/* Brand */}
           <div className="sm:col-span-2 md:col-span-1">
             <div className="flex items-center mb-4">
-              <BrandLogo sizeClass="w-12 h-12" />
+              <BrandLogo sizeClass="w-14 h-14" dark={dark} />
             </div>
-            <p className={`font-body text-sm leading-relaxed mb-5 ${dark ? 'text-white/40' : 'text-space-900/40'}`}>
+            <p className={`font-body text-sm leading-relaxed mb-5 ${dark ? 'text-white/40' : 'text-space-900/60'}`}>
               We craft digital experiences for ambitious teams.
             </p>
             <div className="flex items-center gap-3">
               {[Github, Twitter, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 ${dark ? 'bg-white/8 hover:bg-white/15 text-white/50 hover:text-white' : 'bg-black/6 hover:bg-black/12 text-space-900/50 hover:text-space-900'}`}>
+                <a key={i} href="#" className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 ${dark ? 'bg-white/8 hover:bg-white/15 text-white/50 hover:text-white' : 'bg-black/6 hover:bg-black/12 text-space-900/65 hover:text-space-900'}`}>
                   <Icon size={14} />
                 </a>
               ))}
-              <a href="mailto:hello@asvix.com" className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 ${dark ? 'bg-white/8 hover:bg-white/15 text-white/50 hover:text-white' : 'bg-black/6 hover:bg-black/12 text-space-900/50 hover:text-space-900'}`}>
+              <a href="mailto:hello@asvix.com" className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 ${dark ? 'bg-white/8 hover:bg-white/15 text-white/50 hover:text-white' : 'bg-black/6 hover:bg-black/12 text-space-900/65 hover:text-space-900'}`}>
                 <Mail size={14} />
               </a>
             </div>
@@ -39,7 +39,7 @@ export default function Footer({ dark }) {
               <ul className="flex flex-col gap-2.5">
                 {items.map((item) => (
                   <li key={item}>
-                    <a href={item === 'Contact' ? '/contact' : '#'} className={`font-body text-sm transition-colors duration-200 ${dark ? 'text-white/40 hover:text-white/70' : 'text-space-900/40 hover:text-space-900/70'}`}>
+                    <a href={item === 'Contact' ? '/contact' : '#'} className={`font-body text-sm transition-colors duration-200 ${dark ? 'text-white/40 hover:text-white/70' : 'text-space-900/60 hover:text-space-900/85'}`}>
                       {item}
                     </a>
                   </li>
@@ -51,10 +51,10 @@ export default function Footer({ dark }) {
 
         {/* Bottom bar */}
         <div className={`flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t ${dark ? 'border-white/5' : 'border-black/5'}`}>
-          <p className={`font-body text-xs ${dark ? 'text-white/25' : 'text-space-900/25'}`}>
+          <p className={`font-body text-xs ${dark ? 'text-white/25' : 'text-space-900/45'}`}>
             © 2025 Asvix. All rights reserved.
           </p>
-          <p className={`font-body text-xs ${dark ? 'text-white/25' : 'text-space-900/25'}`}>
+          <p className={`font-body text-xs ${dark ? 'text-white/25' : 'text-space-900/45'}`}>
             Built by Asvix · Designed with craft ✦
           </p>
         </div>

@@ -83,7 +83,7 @@ function BrowserMockup({ project, dark }) {
           <div className="w-3 h-3 rounded-full bg-yellow-400/70" />
           <div className="w-3 h-3 rounded-full bg-green-400/70" />
         </div>
-        <div className={`flex-1 mx-4 rounded-full px-3 py-1 text-xs font-body truncate ${dark ? 'bg-space-700 text-white/40' : 'bg-white text-space-900/40'}`}>
+        <div className={`flex-1 mx-4 rounded-full px-3 py-1 text-xs font-body truncate ${dark ? 'bg-space-700 text-white/40' : 'bg-white text-space-900/60'}`}>
           {(project.previewUrl || project.url).replace('https://', '')}
         </div>
         <div className="w-4 h-4 opacity-30">
@@ -188,7 +188,7 @@ function ProjectBlock({ project, dark, index }) {
               <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
               {project.tag}
             </span>
-            <span className={`text-xs font-body ${dark ? 'text-white/30' : 'text-space-900/30'}`}>{project.year}</span>
+            <span className={`text-xs font-body ${dark ? 'text-white/30' : 'text-space-900/50'}`}>{project.year}</span>
           </div>
 
           {/* Title */}

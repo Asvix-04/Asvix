@@ -60,7 +60,7 @@ export default function Contact({ dark }) {
           <h1 className={`font-display font-bold leading-tight mb-5 ${dark ? 'text-white' : 'text-space-900'}`} style={{ fontSize: 'clamp(2rem, 5vw, 3.6rem)' }}>
             Tell us what you want to build.
           </h1>
-          <p className={`font-body text-base sm:text-lg leading-relaxed max-w-lg mb-8 ${dark ? 'text-white/55' : 'text-space-900/55'}`}>
+          <p className={`font-body text-base sm:text-lg leading-relaxed max-w-lg mb-8 ${dark ? 'text-white/55' : 'text-space-900/70'}`}>
             Share your project details and timeline. We will review it and respond with the right next steps.
           </p>
 
@@ -72,7 +72,7 @@ export default function Contact({ dark }) {
               <a href="mailto:hello@asvix.com" className={`block font-body text-sm transition-colors ${dark ? 'text-azure-300 hover:text-azure-200' : 'text-azure-700 hover:text-azure-600'}`}>
                 hello@asvix.com
               </a>
-              <p className={`font-body text-sm ${dark ? 'text-white/50' : 'text-space-900/50'}`}>Mon-Fri, 9:00 AM to 8:00 PM IST</p>
+              <p className={`font-body text-sm ${dark ? 'text-white/50' : 'text-space-900/65'}`}>Mon-Fri, 9:00 AM to 8:00 PM IST</p>
             </div>
           </div>
 

@@ -103,7 +103,7 @@ export default function Hero({ dark }) {
         </h1>
 
         {/* Sub */}
-        <p className={`max-w-2xl mx-auto text-base sm:text-lg md:text-xl font-body font-light leading-relaxed mb-8 sm:mb-10 animate-fade-up stagger-2 ${dark ? 'text-white/55' : 'text-space-900/55'}`}>
+        <p className={`max-w-2xl mx-auto text-base sm:text-lg md:text-xl font-body font-light leading-relaxed mb-8 sm:mb-10 animate-fade-up stagger-2 ${dark ? 'text-white/55' : 'text-space-900/70'}`}>
           Asvix crafts high-performance, visually stunning digital products for startups and enterprises — from landing pages to full-scale SaaS platforms.
         </p>
 
@@ -129,8 +129,8 @@ export default function Hero({ dark }) {
 
         {/* Scroll hint */}
         <div className="mt-12 sm:mt-16 md:mt-20 flex flex-col items-center gap-2 animate-fade-in stagger-5">
-          <span className={`text-xs font-body tracking-widest uppercase ${dark ? 'text-white/25' : 'text-space-900/25'}`}>scroll</span>
-          <ArrowDown size={14} className={`animate-bounce ${dark ? 'text-white/25' : 'text-space-900/25'}`} />
+          <span className={`text-xs font-body tracking-widest uppercase ${dark ? 'text-white/25' : 'text-space-900/45'}`}>scroll</span>
+          <ArrowDown size={14} className={`animate-bounce ${dark ? 'text-white/25' : 'text-space-900/45'}`} />
         </div>
       </div>
     </section>
