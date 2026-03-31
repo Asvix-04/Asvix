@@ -6,6 +6,7 @@ import Projects from './components/Projects'
 import Stats from './components/Stats'
 import Footer from './components/Footer'
 import Contact from './components/Contact'
+import About from './components/About'
 
 export default function App() {
   const [dark, setDark] = useState(true)
@@ -36,6 +37,7 @@ export default function App() {
           )}
         />
         <Route path="/contact" element={<Contact dark={dark} />} />
+        <Route path="/about" element={<About dark={dark} />} />
       </Routes>
     </div>
   )

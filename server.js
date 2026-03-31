@@ -83,6 +83,7 @@ app.post('/api/contact', async (req, res) => {
     await transporter.sendMail(mailOptions)
     return res.status(200).json({ ok: true, message: 'Message sent successfully.' })
   } catch (error) {
+    console.error('Mail error:', error.message)
     return res.status(500).json({ error: 'Could not send your message right now.' })
   }
 })

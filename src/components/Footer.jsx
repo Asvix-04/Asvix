@@ -26,7 +26,7 @@ export default function Footer({ dark }) {
                   <Icon size={14} />
                 </a>
               ))}
-              <a href="mailto:hello@asvix.com" className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 ${dark ? 'bg-white/8 hover:bg-white/15 text-white/50 hover:text-white' : 'bg-black/6 hover:bg-black/12 text-space-900/65 hover:text-space-900'}`}>
+              <a href="mailto:asvix2025@gmail.com" className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 ${dark ? 'bg-white/8 hover:bg-white/15 text-white/50 hover:text-white' : 'bg-black/6 hover:bg-black/12 text-space-900/65 hover:text-space-900'}`}>
                 <Mail size={14} />
               </a>
             </div>
@@ -39,7 +39,7 @@ export default function Footer({ dark }) {
               <ul className="flex flex-col gap-2.5">
                 {items.map((item) => (
                   <li key={item}>
-                    <a href={item === 'Contact' ? '/contact' : '#'} className={`font-body text-sm transition-colors duration-200 ${dark ? 'text-white/40 hover:text-white/70' : 'text-space-900/60 hover:text-space-900/85'}`}>
+                    <a href={item === 'Contact' ? '/contact' : item === 'About' ? '/about' : '#'} className={`font-body text-sm transition-colors duration-200 ${dark ? 'text-white/40 hover:text-white/70' : 'text-space-900/60 hover:text-space-900/85'}`}>
                       {item}
                     </a>
                   </li>

@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { CheckCircle, XCircle, X } from 'lucide-react'
 
 const initialForm = {
   name: '',
@@ -12,6 +13,13 @@ export default function Contact({ dark }) {
   const [form, setForm] = useState(initialForm)
   const [status, setStatus] = useState({ type: '', text: '' })
   const [sending, setSending] = useState(false)
+
+  // Auto-dismiss popup after 5 seconds
+  useEffect(() => {
+    if (!status.text) return
+    const timer = setTimeout(() => setStatus({ type: '', text: '' }), 5000)
+    return () => clearTimeout(timer)
+  }, [status.text])
 
   const onChange = (event) => {
     const { name, value } = event.target
@@ -50,6 +58,30 @@ export default function Contact({ dark }) {
 
   return (
     <main className="relative min-h-screen pt-28 pb-16 px-4 sm:px-6 md:px-10 overflow-hidden">
+      {/* Toast popup */}
+      {status.text && (
+        <div className="fixed top-20 right-4 sm:right-6 z-[100] animate-fade-up max-w-sm w-full">
+          <div className={`flex items-start gap-3 rounded-2xl px-5 py-4 shadow-2xl border backdrop-blur-sm ${
+            status.type === 'success'
+              ? dark ? 'bg-green-900/80 border-green-500/30 text-green-200' : 'bg-green-50 border-green-300 text-green-800'
+              : dark ? 'bg-red-900/80 border-red-500/30 text-red-200' : 'bg-red-50 border-red-300 text-red-800'
+          }`}>
+            {status.type === 'success'
+              ? <CheckCircle size={20} className="mt-0.5 flex-shrink-0" />
+              : <XCircle size={20} className="mt-0.5 flex-shrink-0" />
+            }
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-display font-semibold mb-0.5">
+                {status.type === 'success' ? 'Message Sent!' : 'Failed to Send'}
+              </p>
+              <p className="text-xs font-body opacity-80">{status.text}</p>
+            </div>
+            <button onClick={() => setStatus({ type: '', text: '' })} className="mt-0.5 flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
+              <X size={16} />
+            </button>
+          </div>
+        </div>
+      )}
       <div className="absolute inset-0 pointer-events-none" style={{ background: dark ? 'radial-gradient(ellipse at 20% 0%, rgba(59,130,246,0.18) 0%, transparent 45%)' : 'radial-gradient(ellipse at 25% 0%, rgba(59,130,246,0.12) 0%, transparent 45%)' }} />
 
       <section className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-start relative z-10">
@@ -69,8 +101,8 @@ export default function Contact({ dark }) {
               Direct contact
             </p>
             <div className="space-y-2">
-              <a href="mailto:hello@asvix.com" className={`block font-body text-sm transition-colors ${dark ? 'text-azure-300 hover:text-azure-200' : 'text-azure-700 hover:text-azure-600'}`}>
-                hello@asvix.com
+              <a href="mailto:asvix2025@gmail.com" className={`block font-body text-sm transition-colors ${dark ? 'text-azure-300 hover:text-azure-200' : 'text-azure-700 hover:text-azure-600'}`}>
+                asvix2025@gmail.com
               </a>
               <p className={`font-body text-sm ${dark ? 'text-white/50' : 'text-space-900/65'}`}>Mon-Fri, 9:00 AM to 8:00 PM IST</p>
             </div>
@@ -151,9 +183,20 @@ export default function Contact({ dark }) {
             </div>
 
             {status.text && (
-              <p className={`text-sm font-body ${status.type === 'success' ? (dark ? 'text-green-300' : 'text-green-700') : (dark ? 'text-rose-300' : 'text-rose-700')}`}>
-                {status.text}
-              </p>
+              <div className={`flex items-start gap-3 rounded-xl px-4 py-3 border ${
+                status.type === 'success'
+                  ? dark ? 'bg-green-500/10 border-green-500/20 text-green-300' : 'bg-green-50 border-green-200 text-green-700'
+                  : dark ? 'bg-red-500/10 border-red-500/20 text-red-300' : 'bg-red-50 border-red-200 text-red-700'
+              }`}>
+                {status.type === 'success'
+                  ? <CheckCircle size={18} className="mt-0.5 flex-shrink-0" />
+                  : <XCircle size={18} className="mt-0.5 flex-shrink-0" />
+                }
+                <span className="text-sm font-body flex-1">{status.text}</span>
+                <button onClick={() => setStatus({ type: '', text: '' })} className="mt-0.5 flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
+                  <X size={14} />
+                </button>
+              </div>
             )}
 
             <button
