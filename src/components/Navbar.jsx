@@ -40,9 +40,9 @@ export default function Navbar({ dark, setDark }) {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
+              to={item.href}
               className={`text-sm font-body font-medium transition-colors duration-200 ${
                 dark
                   ? 'text-white/60 hover:text-white'
@@ -50,7 +50,7 @@ export default function Navbar({ dark, setDark }) {
               }`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -70,14 +70,14 @@ export default function Navbar({ dark, setDark }) {
           </button>
 
           {/* CTA */}
-          <a
-            href={location.pathname === '/contact' ? '/#work' : '#work'}
+          <Link
+            to={location.pathname === '/contact' ? '/#work' : '#work'}
             className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-space-600 to-space-500 text-white text-sm font-medium font-body hover:shadow-lg hover:shadow-space-500/30 transition-all duration-300 hover:-translate-y-0.5"
           >
             View Work
-          </a>
+          </Link>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu Toggle */}
           <button
             className={`md:hidden w-10 h-10 flex items-center justify-center rounded-full ${
               dark ? 'bg-white/10 text-white' : 'bg-black/5 text-space-900'
@@ -89,18 +89,18 @@ export default function Navbar({ dark, setDark }) {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {menuOpen && (
         <div className={`md:hidden px-4 sm:px-6 pb-6 pt-2 flex flex-col gap-4 ${dark ? 'bg-space-900/95' : 'bg-white/95'}`}>
           {navLinks.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
+              to={item.href}
               onClick={() => setMenuOpen(false)}
               className={`text-sm font-medium ${dark ? 'text-white/70' : 'text-space-900/70'}`}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
         </div>
       )}

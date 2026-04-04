@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Github, Twitter, Linkedin, Mail } from 'lucide-react'
 import BrandLogo from './BrandLogo'
 
@@ -39,9 +40,15 @@ export default function Footer({ dark }) {
               <ul className="flex flex-col gap-2.5">
                 {items.map((item) => (
                   <li key={item}>
-                    <a href={item === 'Contact' ? '/contact' : item === 'About' ? '/about' : '#'} className={`font-body text-sm transition-colors duration-200 ${dark ? 'text-white/40 hover:text-white/70' : 'text-space-900/60 hover:text-space-900/85'}`}>
-                      {item}
-                    </a>
+                    {item === 'Contact' || item === 'About' ? (
+                      <Link to={item === 'Contact' ? '/contact' : '/about'} className={`font-body text-sm transition-colors duration-200 ${dark ? 'text-white/40 hover:text-white/70' : 'text-space-900/60 hover:text-space-900/85'}`}>
+                        {item}
+                      </Link>
+                    ) : (
+                      <a href="#" className={`font-body text-sm transition-colors duration-200 ${dark ? 'text-white/40 hover:text-white/70' : 'text-space-900/60 hover:text-space-900/85'}`}>
+                        {item}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

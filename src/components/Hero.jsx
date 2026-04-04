@@ -63,21 +63,9 @@ export default function Hero({ dark }) {
         </>
       )}
 
-      {/* Light mode subtle gradient + 3D orb */}
+      {/* Light mode subtle gradient */}
       {!dark && (
-        <>
-          <div className="absolute inset-0 bg-gradient-to-b from-sky-50/80 via-white to-white pointer-events-none" />
-          <div className="absolute right-[-8rem] top-[20%] w-[20rem] h-[20rem] md:w-[26rem] md:h-[26rem] pointer-events-none animate-float"
-            style={{ perspective: '1200px' }}>
-            <div className="w-full h-full rounded-[28%] border border-space-500/15"
-              style={{
-                transform: 'rotateX(58deg) rotateY(-26deg) rotateZ(24deg)',
-                background: 'radial-gradient(circle at 25% 20%, rgba(147,197,253,0.55) 0%, rgba(59,130,246,0.28) 35%, rgba(30,49,99,0.2) 62%, rgba(255,255,255,0.04) 100%)',
-                boxShadow: '0 35px 90px rgba(30,49,99,0.25), inset -28px -28px 70px rgba(30,49,99,0.18), inset 24px 24px 54px rgba(255,255,255,0.6)',
-              }}
-            />
-          </div>
-        </>
+        <div className="absolute inset-0 bg-gradient-to-b from-sky-50/80 via-white to-white pointer-events-none" />
       )}
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">

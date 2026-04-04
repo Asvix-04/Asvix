@@ -9,9 +9,13 @@ import Contact from './components/Contact'
 import About from './components/About'
 
 export default function App() {
-  const [dark, setDark] = useState(true)
+  const [dark, setDark] = useState(() => {
+    const saved = localStorage.getItem('asvix-theme')
+    return saved !== null ? JSON.parse(saved) : true
+  })
 
   useEffect(() => {
+    localStorage.setItem('asvix-theme', JSON.stringify(dark))
     if (dark) {
       document.documentElement.classList.add('dark')
     } else {
