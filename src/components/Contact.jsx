@@ -29,7 +29,7 @@ export default function Contact({ dark }) {
         {/* Tagline */}
         <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border text-[10px] sm:text-xs font-medium font-body tracking-[0.2em] uppercase"
           style={{
-            borderColor: dark ? 'rgba(96,165,250,0.2)' : 'rgba(37,99,235,0.1)',
+            borderColor: dark ? 'rgba(96,165,250,0.2)' : 'rgba(0,0,0,0.25)',
             color: dark ? 'rgba(147,197,253,0.9)' : '#2563EB',
             background: dark ? 'rgba(59,130,246,0.05)' : 'rgba(219,234,254,0.4)',
           }}
@@ -53,7 +53,7 @@ export default function Contact({ dark }) {
         <div className={`group relative rounded-[2.5rem] p-8 sm:p-12 border transition-all duration-500 hover:shadow-2xl hover:shadow-azure-500/10 ${
           dark 
             ? 'bg-space-800/40 border-white/8 backdrop-blur-md' 
-            : 'bg-white border-black/5 shadow-xl shadow-black/5'
+            : 'bg-white border-black/20 shadow-xl shadow-black/5'
         }`}>
             {/* Hover glow */}
             <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-br from-azure-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
@@ -101,7 +101,7 @@ export default function Contact({ dark }) {
                 className={`inline-flex items-center gap-2 px-6 py-2 rounded-full border text-sm font-body font-medium transition-all duration-300 hover:scale-105 ${
                     dark 
                         ? 'border-white/10 text-white/50 hover:border-white/30 hover:text-white' 
-                        : 'border-black/5 text-space-900/50 hover:border-black/20 hover:text-space-900'
+                        : 'border-black/25 text-space-900/50 hover:border-black/40 hover:text-space-900'
                 }`}
             >
                 <ArrowLeft size={14} />

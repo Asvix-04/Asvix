@@ -74,7 +74,7 @@ function BrowserMockup({ project, dark }) {
   const hasImage = Boolean(project.imagePath && !imageFailed)
 
   return (
-    <div className={`rounded-2xl overflow-hidden border ${dark ? 'border-white/8' : 'border-black/8'} shadow-2xl`}
+    <div className={`rounded-2xl overflow-hidden border ${dark ? 'border-white/8' : 'border-black/15'} shadow-2xl`}
       style={{ boxShadow: `0 40px 80px ${project.glowColor}` }}>
       {/* Browser bar */}
       <div className={`flex items-center gap-2 px-4 py-3 ${dark ? 'bg-space-800' : 'bg-gray-100'}`}>
@@ -129,7 +129,7 @@ function BrowserMockup({ project, dark }) {
         {!hasImage && (
           <div className="grid grid-cols-3 gap-3 z-10 mt-auto">
             {[1, 2, 3].map((i) => (
-              <div key={i} className={`rounded-xl p-3 flex flex-col gap-1.5 ${dark ? 'bg-white/5 border border-white/8' : 'bg-white/10 border border-white/15'}`}>
+              <div key={i} className={`rounded-xl p-3 flex flex-col gap-1.5 ${dark ? 'bg-white/5 border border-white/8' : 'bg-white/10 border border-black/20'}`}>
                 <div className="w-8 h-8 rounded-lg opacity-70" style={{ background: `linear-gradient(135deg, ${project.accentFrom}50, ${project.accentTo}50)` }} />
                 <div className="w-full h-2 rounded bg-white/20" />
                 <div className="w-3/4 h-1.5 rounded bg-white/10" />
@@ -164,7 +164,6 @@ function ProjectBlock({ project, dark, index }) {
   return (
     <div
       ref={ref}
-      id="work"
       className={`transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
       style={{ transitionDelay: `${index * 0.1}s` }}
     >

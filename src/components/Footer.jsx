@@ -10,7 +10,7 @@ const links = {
 
 export default function Footer({ dark }) {
   return (
-    <footer className={`pt-14 md:pt-16 pb-8 px-4 sm:px-6 md:px-10 border-t ${dark ? 'border-white/6' : 'border-black/6'}`}>
+    <footer className={`pt-14 md:pt-16 pb-8 px-4 sm:px-6 md:px-10 border-t ${dark ? 'border-white/6' : 'border-black/15'}`}>
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-14 md:mb-16">
           {/* Brand */}
@@ -57,7 +57,7 @@ export default function Footer({ dark }) {
         </div>
 
         {/* Bottom bar */}
-        <div className={`flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t ${dark ? 'border-white/5' : 'border-black/5'}`}>
+        <div className={`flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t ${dark ? 'border-white/5' : 'border-black/12'}`}>
           <p className={`font-body text-xs ${dark ? 'text-white/25' : 'text-space-900/45'}`}>
             © 2025 Asvix. All rights reserved.
           </p>

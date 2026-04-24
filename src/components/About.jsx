@@ -29,9 +29,9 @@ export default function About({ dark }) {
   ]
 
   const team = [
-    { icon: Code, title: 'Engineers', desc: 'Full-stack developers who build scalable, production-ready systems.' },
+    { icon: Code, title: 'Software Developers', desc: 'Full-stack developers who build scalable, production-ready systems.' },
     { icon: PenTool, title: 'Designers', desc: 'UI/UX specialists obsessed with pixel-perfect, conversion-focused design.' },
-    { icon: Cpu, title: 'AI Specialists', desc: 'Machine learning engineers who integrate intelligent features into products.' },
+    { icon: Cpu, title: 'AI Engineers', desc: 'Machine learning engineers who integrate intelligent features into products.' },
   ]
 
   return (
@@ -58,7 +58,7 @@ export default function About({ dark }) {
           </div>
 
           {/* Mission */}
-          <div ref={ref} className={`reveal rounded-2xl md:rounded-3xl border p-6 sm:p-8 md:p-12 mb-16 md:mb-20 relative overflow-hidden ${dark ? 'bg-space-800 border-white/8' : 'bg-gray-50 border-gray-200'}`}>
+          <div ref={ref} className={`reveal rounded-2xl md:rounded-3xl border p-6 sm:p-8 md:p-12 mb-16 md:mb-20 relative overflow-hidden ${dark ? 'bg-space-800 border-white/8' : 'bg-gray-50 border-gray-300'}`}>
             {dark && (
               <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-blue-600/10 blur-3xl" />
@@ -70,9 +70,7 @@ export default function About({ dark }) {
                 Our Mission
               </h2>
               <p className={`font-body text-sm sm:text-base leading-relaxed max-w-3xl ${dark ? 'text-white/55' : 'text-space-900/65'}`}>
-                Whether it's a full-stack AI platform or a blazing-fast marketing frontend,
-                we bring the same intensity: clean architecture, stunning visuals, and pixel-level attention to detail.
-                We exist to turn ambitious visions into digital reality — products that don't just work, but inspire.
+                We are focused to build applications for social and welfare causes. For real world impact as well for clients as well.
               </p>
             </div>
           </div>
@@ -84,7 +82,7 @@ export default function About({ dark }) {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {values.map((v) => (
-                <div key={v.title} className={`rounded-2xl p-6 border transition-colors ${dark ? 'bg-space-800 border-white/8 hover:bg-space-700' : 'bg-white border-gray-200 hover:bg-gray-50'}`}>
+                <div key={v.title} className={`rounded-2xl p-6 border transition-colors ${dark ? 'bg-space-800 border-white/8 hover:bg-space-700' : 'bg-white border-gray-300 hover:bg-gray-50'}`}>
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${dark ? 'bg-azure-400/10' : 'bg-azure-500/10'}`}>
                     <v.icon size={20} className={dark ? 'text-azure-400' : 'text-azure-600'} />
                   </div>
@@ -109,12 +107,12 @@ export default function About({ dark }) {
                 { icon: Smartphone, title: 'Mobile Apps' },
                 { icon: Bot, title: 'AI Integration' },
                 { icon: Zap, title: 'Performance Optimization' },
-                { icon: Palette, title: 'UI / UX Design' },
+                { icon: Palette, title: 'AI applications' },
                 { icon: Cloud, title: 'SaaS Architecture' },
               ].map((s) => (
                 <div
                   key={s.title}
-                  className={`flex items-center gap-3 px-4 py-3.5 rounded-xl border transition-colors ${dark ? 'bg-white/4 border-white/8 hover:bg-white/7' : 'bg-white border-gray-200 hover:bg-gray-50'}`}
+                  className={`flex items-center gap-3 px-4 py-3.5 rounded-xl border transition-colors ${dark ? 'bg-white/4 border-white/8 hover:bg-white/7' : 'bg-white border-gray-300 hover:bg-gray-50'}`}
                 >
                   <s.icon size={18} className={dark ? 'text-azure-400' : 'text-azure-600'} />
                   <span className={`font-body text-sm font-medium ${dark ? 'text-gray-300' : 'text-gray-700'}`}>{s.title}</span>
@@ -130,7 +128,7 @@ export default function About({ dark }) {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {team.map((t) => (
-                <div key={t.title} className={`rounded-2xl p-6 border text-center transition-colors ${dark ? 'bg-space-800 border-white/8 hover:bg-space-700' : 'bg-white border-gray-200 hover:bg-gray-50'}`}>
+                <div key={t.title} className={`rounded-2xl p-6 border text-center transition-colors ${dark ? 'bg-space-800 border-white/8 hover:bg-space-700' : 'bg-white border-gray-300 hover:bg-gray-50'}`}>
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 ${dark ? 'bg-azure-400/10' : 'bg-azure-500/10'}`}>
                     <t.icon size={24} className={dark ? 'text-azure-400' : 'text-azure-600'} />
                   </div>
@@ -142,7 +140,7 @@ export default function About({ dark }) {
           </div>
 
           {/* CTA */}
-          <div className={`rounded-2xl md:rounded-3xl p-8 md:p-12 text-center border ${dark ? 'bg-space-800 border-white/8' : 'bg-gray-50 border-gray-200'}`}>
+          <div className={`rounded-2xl md:rounded-3xl p-8 md:p-12 text-center border ${dark ? 'bg-space-800 border-white/8' : 'bg-gray-50 border-gray-300'}`}>
             <h2 className={`font-display font-bold text-2xl sm:text-3xl mb-4 ${dark ? 'text-white' : 'text-space-900'}`}>
               Ready to build something great?
             </h2>

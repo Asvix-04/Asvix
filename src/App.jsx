@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
@@ -22,6 +22,22 @@ export default function App() {
       document.documentElement.classList.remove('dark')
     }
   }, [dark])
+
+  const { pathname, hash } = useLocation()
+
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo(0, 0)
+    } else {
+      const id = hash.replace('#', '')
+      const element = document.getElementById(id)
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }, 100)
+      }
+    }
+  }, [pathname, hash])
 
   return (
     <div className={`min-h-screen transition-colors duration-500 ${dark ? 'bg-space-900 text-white' : 'bg-white text-space-900'}`}>

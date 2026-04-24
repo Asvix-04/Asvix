@@ -72,7 +72,7 @@ export default function Hero({ dark }) {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 mb-5 sm:mb-7 px-3 sm:px-4 py-1.5 rounded-full border text-[10px] sm:text-xs font-medium font-body tracking-[0.2em] uppercase animate-fade-in"
           style={{
-            borderColor: dark ? 'rgba(96,165,250,0.3)' : 'rgba(37,99,235,0.2)',
+            borderColor: dark ? 'rgba(96,165,250,0.3)' : 'rgba(37,99,235,0.35)',
             color: dark ? 'rgba(147,197,253,0.9)' : '#2563EB',
             background: dark ? 'rgba(59,130,246,0.08)' : 'rgba(219,234,254,0.6)',
           }}>
@@ -108,7 +108,7 @@ export default function Hero({ dark }) {
             className={`px-8 py-3.5 rounded-full border font-body font-medium text-sm transition-all duration-300 hover:-translate-y-1 ${
               dark
                 ? 'border-white/15 text-white/70 hover:border-white/30 hover:text-white'
-                : 'border-space-900/15 text-space-900/70 hover:border-space-900/30 hover:text-space-900'
+                : 'border-space-900/30 text-space-900/70 hover:border-space-900/50 hover:text-space-900'
             }`}
           >
             Our Services
