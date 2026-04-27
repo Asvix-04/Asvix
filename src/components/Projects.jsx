@@ -33,7 +33,7 @@ const projects = [
     id: 'digilab',
     title: 'DigiLab',
     tagline: 'Space-Blue Product Showcase',
-    url: 'https://v2fronted.netlify.app',
+    url: 'https://digilab1.netlify.app',
     category: 'SaaS · Web Platform',
     year: '2026',
     accentFrom: '#06B6D4',
@@ -47,7 +47,7 @@ const projects = [
       'Mobile-first, fully responsive layout with optimized image delivery and < 1s Largest Contentful Paint',
       'Serves as DigiLab\'s own digital flagship, showcasing the studio\'s design philosophy and service range',
     ],
-    previewUrl: 'https://v2fronted.netlify.app',
+    previewUrl: 'https://digilab1.netlify.app',
     imagePath: '/projects/digilab.svg',
     mockBg: 'from-cyan-900/80 via-blue-950/80 to-space-900',
     mockLines: [
