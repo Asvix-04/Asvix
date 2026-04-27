@@ -2,8 +2,13 @@ import express from 'express'
 import cors from 'cors'
 import nodemailer from 'nodemailer'
 import dotenv from 'dotenv'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 dotenv.config()
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const app = express()
 const PORT = process.env.PORT || 10000
@@ -11,9 +16,8 @@ const PORT = process.env.PORT || 10000
 app.use(cors())
 app.use(express.json())
 
-app.get('/', (req, res) => {
-  res.send("API is running 🚀")
-})
+// Serve static files from the React app build directory
+app.use(express.static(path.join(__dirname, 'dist')))
 
 const requiredEnvVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASS']
 
@@ -90,6 +94,12 @@ app.post('/api/contact', async (req, res) => {
     console.error('Mail error:', error.message)
     return res.status(500).json({ error: 'Could not send your message right now.' })
   }
+})
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 })
 
 app.listen(PORT, () => {
