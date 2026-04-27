@@ -6,10 +6,14 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const app = express()
-const port = Number(process.env.PORT || 5000)
+const PORT = process.env.PORT || 10000
 
 app.use(cors())
 app.use(express.json())
+
+app.get('/', (req, res) => {
+  res.send("API is running 🚀")
+})
 
 const requiredEnvVars = ['SMTP_HOST', 'SMTP_PORT', 'SMTP_USER', 'SMTP_PASS']
 
@@ -88,6 +92,6 @@ app.post('/api/contact', async (req, res) => {
   }
 })
 
-app.listen(port, () => {
-  console.log(`Contact API running on http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
 })
