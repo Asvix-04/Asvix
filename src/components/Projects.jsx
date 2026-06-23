@@ -4,7 +4,7 @@ import { ExternalLink, ArrowRight, CheckCircle2 } from 'lucide-react'
 const projects = [
   {
     id: 'medibot',
-    title: 'MediBot AI',
+    title: 'Medibot AI',
     tagline: 'AI-Powered Health Companion',
     url: 'https://www.medibot-ai.com',
     category: 'HealthTech · SaaS',
@@ -21,7 +21,7 @@ const projects = [
       'Freemium SaaS model with tiered pricing, HIPAA-conscious data encryption, and biometric authentication',
     ],
     previewUrl: 'https://www.medibot-ai.com',
-    imagePath: '/projects/medibot-ai.svg',
+    imagePath: '/projects/medibot-ai-2.png',
     mockBg: 'from-indigo-900/80 via-blue-950/80 to-space-900',
     mockLines: [
       { w: '70%', c: 'bg-blue-400/30' },
@@ -33,7 +33,7 @@ const projects = [
     id: 'digilab',
     title: 'DigiLab',
     tagline: 'Space-Blue Product Showcase',
-    url: 'https://v2fronted.netlify.app',
+    url: 'https://digilab.medialit.in',
     category: 'SaaS · Web Platform',
     year: '2026',
     accentFrom: '#06B6D4',
@@ -47,7 +47,7 @@ const projects = [
       'Mobile-first, fully responsive layout with optimized image delivery and < 1s Largest Contentful Paint',
       'Serves as DigiLab\'s own digital flagship, showcasing the studio\'s design philosophy and service range',
     ],
-    previewUrl: 'https://v2fronted.netlify.app',
+    previewUrl: 'https://digilab.medialit.in',
     imagePath: '/projects/digilab.svg',
     mockBg: 'from-cyan-900/80 via-blue-950/80 to-space-900',
     mockLines: [
