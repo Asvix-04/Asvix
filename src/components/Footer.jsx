@@ -3,7 +3,7 @@ import { Github, Twitter, Linkedin, Mail } from 'lucide-react'
 import BrandLogo from './BrandLogo'
 
 const links = {
-  Work: ['Featured Projects', 'Case Studies', 'Client Results'],
+  Work: ['Featured Projects', 'Client Results'],
   Services: ['Landing Pages', 'SaaS Builds', 'AI Products', 'Design Systems'],
   Company: ['About', 'Careers', 'Blog', 'Contact'],
 }
