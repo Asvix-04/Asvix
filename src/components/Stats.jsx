@@ -27,7 +27,7 @@ export default function Stats({ dark }) {
     <section id="services" className="py-20 md:py-24 px-4 sm:px-6 md:px-10 overflow-hidden">
       <div className="max-w-7xl mx-auto" ref={ref}>
         {/* Stats strip */}
-        <div className={`grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden border mb-16 md:mb-24 ${dark ? 'border-white/8 bg-white/5' : 'border-black/15 bg-black/5'}`}>
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl overflow-hidden border mb-16 md:mb-24 ${dark ? 'border-white/[0.08] bg-white/5' : 'border-black/[0.15] bg-black/5'}`}>
           {stats.map(({ icon: Icon, label, value, desc }, i) => (
             <div
               key={label}
@@ -44,7 +44,7 @@ export default function Stats({ dark }) {
 
         {/* Services Marquee */}
         <div className={`transition-all duration-700 ${inView ? 'opacity-100' : 'opacity-0'}`}>
-          <p className={`text-center text-xs font-body font-medium tracking-widest uppercase mb-8 ${dark ? 'text-white/25' : 'text-space-900/45'}`}>
+          <p className={`text-center text-xs font-body font-medium tracking-widest uppercase mb-8 ${dark ? 'text-white/25' : 'text-space-900/[0.45]'}`}>
             What we build
           </p>
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
@@ -54,7 +54,7 @@ export default function Stats({ dark }) {
                 className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full font-body text-xs sm:text-sm font-medium border transition-all duration-300 hover:-translate-y-0.5 cursor-default ${
                   dark
                     ? 'border-white/10 text-white/50 hover:border-azure-500/40 hover:text-azure-400'
-                    : 'border-black/20 text-space-900/65 hover:border-azure-500/40 hover:text-azure-600'
+                    : 'border-black/20 text-space-900/[0.65] hover:border-azure-500/40 hover:text-azure-600'
                 }`}
                 style={{ transitionDelay: `${i * 0.04}s` }}
               >
@@ -65,7 +65,7 @@ export default function Stats({ dark }) {
         </div>
 
         {/* CTA Banner */}
-        <div className={`mt-16 md:mt-24 rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-16 text-center relative overflow-hidden transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${dark ? 'bg-space-800 border border-white/8' : 'bg-gray-50 border border-black/15'}`}
+        <div className={`mt-16 md:mt-24 rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-16 text-center relative overflow-hidden transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${dark ? 'bg-space-800 border border-white/[0.08]' : 'bg-gray-50 border border-black/[0.15]'}`}
           style={{ transitionDelay: '0.3s' }}>
           <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% -20%, rgba(59,130,246,0.12) 0%, transparent 60%)' }} />
           <p className={`text-xs font-body font-medium tracking-widest uppercase mb-4 ${dark ? 'text-azure-400/70' : 'text-azure-600'}`}>
@@ -76,7 +76,7 @@ export default function Stats({ dark }) {
             Let's make something<br />
             <span className="text-gradient bg-gradient-to-r from-azure-400 to-indigo-400">unforgettable.</span>
           </h3>
-          <p className={`max-w-lg mx-auto font-body text-sm sm:text-base mb-8 ${dark ? 'text-white/45' : 'text-space-900/45'}`}>
+          <p className={`max-w-lg mx-auto font-body text-sm sm:text-base mb-8 ${dark ? 'text-white/[0.45]' : 'text-space-900/[0.45]'}`}>
             Whether it's a SaaS product, a marketing site, or a full-scale web app — we'll build it with craft and obsession.
           </p>
           <a

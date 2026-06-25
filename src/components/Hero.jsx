@@ -59,7 +59,7 @@ export default function Hero({ dark }) {
       {dark && (
         <>
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-space-500/20 blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-azure-500/8 blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-azure-500/[0.08] blur-[100px] pointer-events-none" />
         </>
       )}
 
@@ -91,7 +91,7 @@ export default function Hero({ dark }) {
         </h1>
 
         {/* Sub */}
-        <p className={`max-w-2xl mx-auto text-base sm:text-lg md:text-xl font-body font-light leading-relaxed mb-8 sm:mb-10 animate-fade-up stagger-2 ${dark ? 'text-white/55' : 'text-space-900/70'}`}>
+        <p className={`max-w-2xl mx-auto text-base sm:text-lg md:text-xl font-body font-light leading-relaxed mb-8 sm:mb-10 animate-fade-up stagger-2 ${dark ? 'text-white/[0.55]' : 'text-space-900/70'}`}>
           Asvix crafts high-performance, visually stunning digital products for startups and enterprises — from landing pages to full-scale SaaS platforms.
         </p>
 
@@ -107,7 +107,7 @@ export default function Hero({ dark }) {
             href="#services"
             className={`px-8 py-3.5 rounded-full border font-body font-medium text-sm transition-all duration-300 hover:-translate-y-1 ${
               dark
-                ? 'border-white/15 text-white/70 hover:border-white/30 hover:text-white'
+                ? 'border-white/[0.15] text-white/70 hover:border-white/30 hover:text-white'
                 : 'border-space-900/30 text-space-900/70 hover:border-space-900/50 hover:text-space-900'
             }`}
           >
@@ -117,8 +117,8 @@ export default function Hero({ dark }) {
 
         {/* Scroll hint */}
         <div className="mt-12 sm:mt-16 md:mt-20 flex flex-col items-center gap-2 animate-fade-in stagger-5">
-          <span className={`text-xs font-body tracking-widest uppercase ${dark ? 'text-white/25' : 'text-space-900/45'}`}>scroll</span>
-          <ArrowDown size={14} className={`animate-bounce ${dark ? 'text-white/25' : 'text-space-900/45'}`} />
+          <span className={`text-xs font-body tracking-widest uppercase ${dark ? 'text-white/25' : 'text-space-900/[0.45]'}`}>scroll</span>
+          <ArrowDown size={14} className={`animate-bounce ${dark ? 'text-white/25' : 'text-space-900/[0.45]'}`} />
         </div>
       </div>
     </section>

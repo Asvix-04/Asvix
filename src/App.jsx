@@ -7,6 +7,9 @@ import Stats from './components/Stats'
 import Footer from './components/Footer'
 import Contact from './components/Contact'
 import About from './components/About'
+import Feedback from './components/Feedback'
+import LandingPages from './components/LandingPages'
+import AIProductsDesignSystems from './components/AIProductsDesignSystems'
 
 export default function App() {
   const [dark, setDark] = useState(() => {
@@ -58,6 +61,9 @@ export default function App() {
         />
         <Route path="/contact" element={<Contact dark={dark} />} />
         <Route path="/about" element={<About dark={dark} />} />
+        <Route path="/feedback" element={<Feedback dark={dark} />} />
+        <Route path="/landing-pages" element={<LandingPages dark={dark} />} />
+        <Route path="/ai-products-design-systems" element={<AIProductsDesignSystems dark={dark} />} />
       </Routes>
     </div>
   )

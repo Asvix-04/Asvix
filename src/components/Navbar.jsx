@@ -27,7 +27,7 @@ export default function Navbar({ dark, setDark }) {
         scrolled
           ? dark
             ? 'glass-dark border-white/5'
-            : 'glass-light border-black/15 shadow-sm'
+            : 'glass-light border-black/[0.15] shadow-sm'
           : 'bg-transparent border-transparent'
       }`}
     >

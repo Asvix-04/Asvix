@@ -58,18 +58,18 @@ export default function About({ dark }) {
           </div>
 
           {/* Mission */}
-          <div ref={ref} className={`reveal rounded-2xl md:rounded-3xl border p-6 sm:p-8 md:p-12 mb-16 md:mb-20 relative overflow-hidden ${dark ? 'bg-space-800 border-white/8' : 'bg-gray-50 border-gray-300'}`}>
+          <div ref={ref} className={`reveal rounded-2xl md:rounded-3xl border p-6 sm:p-8 md:p-12 mb-16 md:mb-20 relative overflow-hidden ${dark ? 'bg-space-800 border-white/[0.08]' : 'bg-gray-50 border-gray-300'}`}>
             {dark && (
               <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-blue-600/10 blur-3xl" />
-                <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-cyan-600/8 blur-3xl" />
+                <div className="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-cyan-600/[0.08] blur-3xl" />
               </div>
             )}
             <div className="relative">
               <h2 className={`font-display font-bold text-2xl sm:text-3xl mb-4 ${dark ? 'text-white' : 'text-space-900'}`}>
                 Our Mission
               </h2>
-              <p className={`font-body text-sm sm:text-base leading-relaxed max-w-3xl ${dark ? 'text-white/55' : 'text-space-900/65'}`}>
+              <p className={`font-body text-sm sm:text-base leading-relaxed max-w-3xl ${dark ? 'text-white/[0.55]' : 'text-space-900/[0.65]'}`}>
                 We are focused to build applications for social and welfare causes. For real world impact as well for clients as well.
               </p>
             </div>
@@ -82,12 +82,12 @@ export default function About({ dark }) {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {values.map((v) => (
-                <div key={v.title} className={`rounded-2xl p-6 border transition-colors ${dark ? 'bg-space-800 border-white/8 hover:bg-space-700' : 'bg-white border-gray-300 hover:bg-gray-50'}`}>
+                <div key={v.title} className={`rounded-2xl p-6 border transition-colors ${dark ? 'bg-space-800 border-white/[0.08] hover:bg-space-700' : 'bg-white border-gray-300 hover:bg-gray-50'}`}>
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${dark ? 'bg-azure-400/10' : 'bg-azure-500/10'}`}>
                     <v.icon size={20} className={dark ? 'text-azure-400' : 'text-azure-600'} />
                   </div>
                   <h3 className={`font-display font-semibold text-lg mb-2 ${dark ? 'text-white' : 'text-space-900'}`}>{v.title}</h3>
-                  <p className={`font-body text-sm leading-relaxed ${dark ? 'text-white/50' : 'text-space-900/65'}`}>{v.desc}</p>
+                  <p className={`font-body text-sm leading-relaxed ${dark ? 'text-white/50' : 'text-space-900/[0.65]'}`}>{v.desc}</p>
                 </div>
               ))}
             </div>
@@ -98,7 +98,7 @@ export default function About({ dark }) {
             <h2 className={`font-display font-bold text-2xl sm:text-3xl mb-4 ${dark ? 'text-white' : 'text-space-900'}`}>
               What We Build
             </h2>
-            <p className={`font-body text-sm sm:text-base mb-8 ${dark ? 'text-white/50' : 'text-space-900/65'}`}>
+            <p className={`font-body text-sm sm:text-base mb-8 ${dark ? 'text-white/50' : 'text-space-900/[0.65]'}`}>
               From concept to launch, we handle the full stack.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
@@ -112,7 +112,7 @@ export default function About({ dark }) {
               ].map((s) => (
                 <div
                   key={s.title}
-                  className={`flex items-center gap-3 px-4 py-3.5 rounded-xl border transition-colors ${dark ? 'bg-white/4 border-white/8 hover:bg-white/7' : 'bg-white border-gray-300 hover:bg-gray-50'}`}
+                  className={`flex items-center gap-3 px-4 py-3.5 rounded-xl border transition-colors ${dark ? 'bg-white/[0.04] border-white/[0.08] hover:bg-white/[0.07]' : 'bg-white border-gray-300 hover:bg-gray-50'}`}
                 >
                   <s.icon size={18} className={dark ? 'text-azure-400' : 'text-azure-600'} />
                   <span className={`font-body text-sm font-medium ${dark ? 'text-gray-300' : 'text-gray-700'}`}>{s.title}</span>
@@ -128,23 +128,23 @@ export default function About({ dark }) {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {team.map((t) => (
-                <div key={t.title} className={`rounded-2xl p-6 border text-center transition-colors ${dark ? 'bg-space-800 border-white/8 hover:bg-space-700' : 'bg-white border-gray-300 hover:bg-gray-50'}`}>
+                <div key={t.title} className={`rounded-2xl p-6 border text-center transition-colors ${dark ? 'bg-space-800 border-white/[0.08] hover:bg-space-700' : 'bg-white border-gray-300 hover:bg-gray-50'}`}>
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-3 ${dark ? 'bg-azure-400/10' : 'bg-azure-500/10'}`}>
                     <t.icon size={24} className={dark ? 'text-azure-400' : 'text-azure-600'} />
                   </div>
                   <h3 className={`font-display font-semibold text-lg mb-2 ${dark ? 'text-white' : 'text-space-900'}`}>{t.title}</h3>
-                  <p className={`font-body text-sm leading-relaxed ${dark ? 'text-white/50' : 'text-space-900/65'}`}>{t.desc}</p>
+                  <p className={`font-body text-sm leading-relaxed ${dark ? 'text-white/50' : 'text-space-900/[0.65]'}`}>{t.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
           {/* CTA */}
-          <div className={`rounded-2xl md:rounded-3xl p-8 md:p-12 text-center border ${dark ? 'bg-space-800 border-white/8' : 'bg-gray-50 border-gray-300'}`}>
+          <div className={`rounded-2xl md:rounded-3xl p-8 md:p-12 text-center border ${dark ? 'bg-space-800 border-white/[0.08]' : 'bg-gray-50 border-gray-300'}`}>
             <h2 className={`font-display font-bold text-2xl sm:text-3xl mb-4 ${dark ? 'text-white' : 'text-space-900'}`}>
               Ready to build something great?
             </h2>
-            <p className={`font-body text-sm sm:text-base mb-6 ${dark ? 'text-white/50' : 'text-space-900/65'}`}>
+            <p className={`font-body text-sm sm:text-base mb-6 ${dark ? 'text-white/50' : 'text-space-900/[0.65]'}`}>
               Let's talk about your next project.
             </p>
             <Link

@@ -74,7 +74,7 @@ function BrowserMockup({ project, dark }) {
   const hasImage = Boolean(project.imagePath && !imageFailed)
 
   return (
-    <div className={`rounded-2xl overflow-hidden border ${dark ? 'border-white/8' : 'border-black/15'} shadow-2xl`}
+    <div className={`rounded-2xl overflow-hidden border ${dark ? 'border-transparent bg-space-800/60' : 'border-black/[0.15] bg-white'} shadow-2xl`}
       style={{ boxShadow: `0 40px 80px ${project.glowColor}` }}>
       {/* Browser bar */}
       <div className={`flex items-center gap-2 px-4 py-3 ${dark ? 'bg-space-800' : 'bg-gray-100'}`}>
@@ -129,7 +129,7 @@ function BrowserMockup({ project, dark }) {
         {!hasImage && (
           <div className="grid grid-cols-3 gap-3 z-10 mt-auto">
             {[1, 2, 3].map((i) => (
-              <div key={i} className={`rounded-xl p-3 flex flex-col gap-1.5 ${dark ? 'bg-white/5 border border-white/8' : 'bg-white/10 border border-black/20'}`}>
+              <div key={i} className={`rounded-xl p-3 flex flex-col gap-1.5 ${dark ? 'bg-white/5 border border-white/5' : 'bg-white/10 border border-black/20'}`}>
                 <div className="w-8 h-8 rounded-lg opacity-70" style={{ background: `linear-gradient(135deg, ${project.accentFrom}50, ${project.accentTo}50)` }} />
                 <div className="w-full h-2 rounded bg-white/20" />
                 <div className="w-3/4 h-1.5 rounded bg-white/10" />
@@ -205,7 +205,7 @@ function ProjectBlock({ project, dark, index }) {
             {project.points.map((pt, i) => (
               <li key={i} className="flex items-start gap-3">
                 <CheckCircle2 size={16} className="mt-0.5 flex-shrink-0" style={{ color: project.accentFrom }} />
-                <span className={`text-sm font-body leading-relaxed ${dark ? 'text-white/65' : 'text-space-900/65'}`}>{pt}</span>
+                <span className={`text-sm font-body leading-relaxed ${dark ? 'text-white/[0.65]' : 'text-space-900/[0.65]'}`}>{pt}</span>
               </li>
             ))}
           </ul>

@@ -30,7 +30,7 @@ export default function MediBotPreview() {
       </div>
 
       {/* Medication list */}
-      <div className="bg-white/5 rounded-xl p-3 mb-3 border border-white/8">
+      <div className="bg-white/5 rounded-xl p-3 mb-3 border border-white/[0.08]">
         <div className="text-white/60 text-[9px] mb-2 font-semibold uppercase tracking-widest">Today's Schedule</div>
         {[
           { name: 'Metformin 500mg', time: '8:00 AM', done: true },
@@ -48,18 +48,18 @@ export default function MediBotPreview() {
       </div>
 
       {/* AI Chat bubble */}
-      <div className="bg-white/5 rounded-xl p-3 border border-white/8">
+      <div className="bg-white/5 rounded-xl p-3 border border-white/[0.08]">
         <div className="text-white/60 text-[9px] mb-2 font-semibold uppercase tracking-widest">AI Assistant</div>
         <div className="bg-blue-600/20 rounded-lg rounded-tl-none p-2 mb-2">
           <p className="text-[9px] text-blue-200">Is it safe to take Metformin with my blood pressure medication?</p>
         </div>
-        <div className="bg-white/8 rounded-lg rounded-tr-none p-2 ml-4">
+        <div className="bg-white/[0.08] rounded-lg rounded-tr-none p-2 ml-4">
           <p className="text-[9px] text-white/70">Yes, Metformin and Lisinopril are generally safe to take together. No significant interactions found. ✓</p>
         </div>
       </div>
 
       {/* Floating glow */}
-      <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-blue-500/15 blur-2xl pointer-events-none" />
+      <div className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-blue-500/[0.15] blur-2xl pointer-events-none" />
       <div className="absolute -bottom-10 -left-10 w-28 h-28 rounded-full bg-cyan-500/10 blur-2xl pointer-events-none" />
     </div>
   )

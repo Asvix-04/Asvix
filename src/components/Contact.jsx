@@ -52,7 +52,7 @@ export default function Contact({ dark }) {
         {/* Hero Action Card */}
         <div className={`group relative rounded-[2.5rem] p-8 sm:p-12 border transition-all duration-500 hover:shadow-2xl hover:shadow-azure-500/10 ${
           dark 
-            ? 'bg-space-800/40 border-white/8 backdrop-blur-md' 
+            ? 'bg-space-800/40 border-white/[0.08] backdrop-blur-md'
             : 'bg-white border-black/20 shadow-xl shadow-black/5'
         }`}>
             {/* Hover glow */}
