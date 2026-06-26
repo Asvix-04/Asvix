@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -11,20 +11,12 @@ import Feedback from './components/Feedback'
 import LandingPages from './components/LandingPages'
 import AIProductsDesignSystems from './components/AIProductsDesignSystems'
 
-export default function App() {
-  const [dark, setDark] = useState(() => {
-    const saved = localStorage.getItem('asvix-theme')
-    return saved !== null ? JSON.parse(saved) : true
-  })
+const DARK_MODE = true
 
+export default function App() {
   useEffect(() => {
-    localStorage.setItem('asvix-theme', JSON.stringify(dark))
-    if (dark) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  }, [dark])
+    document.documentElement.classList.add('dark')
+  }, [])
 
   const { pathname, hash } = useLocation()
 
@@ -43,27 +35,27 @@ export default function App() {
   }, [pathname, hash])
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${dark ? 'bg-space-900 text-white' : 'bg-white text-space-900'}`}>
-      <Navbar dark={dark} setDark={setDark} />
+    <div className="min-h-screen bg-space-900 text-white transition-colors duration-500">
+      <Navbar dark={DARK_MODE} />
       <Routes>
         <Route
           path="/"
           element={(
             <>
               <main>
-                <Hero dark={dark} />
-                <Projects dark={dark} />
-                <Stats dark={dark} />
+                <Hero dark={DARK_MODE} />
+                <Projects dark={DARK_MODE} />
+                <Stats dark={DARK_MODE} />
               </main>
-              <Footer dark={dark} />
+              <Footer dark={DARK_MODE} />
             </>
           )}
         />
-        <Route path="/contact" element={<Contact dark={dark} />} />
-        <Route path="/about" element={<About dark={dark} />} />
-        <Route path="/feedback" element={<Feedback dark={dark} />} />
-        <Route path="/landing-pages" element={<LandingPages dark={dark} />} />
-        <Route path="/ai-products-design-systems" element={<AIProductsDesignSystems dark={dark} />} />
+        <Route path="/contact" element={<Contact dark={DARK_MODE} />} />
+        <Route path="/about" element={<About dark={DARK_MODE} />} />
+        <Route path="/feedback" element={<Feedback dark={DARK_MODE} />} />
+        <Route path="/landing-pages" element={<LandingPages dark={DARK_MODE} />} />
+        <Route path="/ai-products-design-systems" element={<AIProductsDesignSystems dark={DARK_MODE} />} />
       </Routes>
     </div>
   )

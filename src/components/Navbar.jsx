@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Sun, Moon, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import BrandLogo from './BrandLogo'
 
-export default function Navbar({ dark, setDark }) {
+export default function Navbar({ dark }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
@@ -56,19 +56,6 @@ export default function Navbar({ dark, setDark }) {
 
         {/* Right Controls */}
         <div className="flex items-center gap-3">
-          {/* Theme Toggle */}
-          <button
-            onClick={() => setDark(!dark)}
-            className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-              dark
-                ? 'bg-white/10 hover:bg-white/20 text-white/70 hover:text-white'
-                : 'bg-black/5 hover:bg-black/10 text-space-900/70 hover:text-space-900'
-            }`}
-            aria-label="Toggle theme"
-          >
-            {dark ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
-
           {/* CTA */}
           <Link
             to={location.pathname === '/contact' ? '/#work' : '#work'}
